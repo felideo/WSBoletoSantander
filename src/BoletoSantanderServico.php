@@ -20,7 +20,7 @@ namespace TIExpert\WSBoletoSantander;
 
 /**
  * Classe que possibilita a integração entre o PHP e o sistema de registro de boletos online do banco Santander
- * 
+ *
  * @author Denys Xavier <equipe@tiexpert.net>
  */
 class BoletoSantanderServico {
@@ -32,7 +32,7 @@ class BoletoSantanderServico {
     private $comunicador;
 
     /** Cria uma nova instância de BoletoSantanderServico
-     * 
+     *
      * @param \TIExpert\WSBoletoSantander\ComunicadorCurlSOAP $comunicadorCurlSOAP Referência ao objeto a ser usado como ponte de comunicação entre o serviço e a extensão cURL do PHP.
      */
     public function __construct(ComunicadorCurlSOAP $comunicadorCurlSOAP) {
@@ -40,7 +40,7 @@ class BoletoSantanderServico {
     }
 
     /** Solicita um tíquete de segurança para inclusão do boleto no Santander
-     * 
+     *
      * @param \TIExpert\WSBoletoSantander\Boleto $boleto Boleto que deverá ser validado e pré-cadastrado no Santander
      * @return \TIExpert\WSBoletoSantander\Ticket
      */
@@ -49,7 +49,7 @@ class BoletoSantanderServico {
     }
 
     /** Solicita um tíquete de segurança para sondagem de um boleto no Santander
-     * 
+     *
      * @param \TIExpert\WSBoletoSantander\Convenio $convenio
      * @return \TIExpert\WSBoletoSantander\Ticket
      */
@@ -58,7 +58,7 @@ class BoletoSantanderServico {
     }
 
     /** Faz chamada a um serviço gerador de tíquete baseado no objeto informado
-     * 
+     *
      * @param \TIExpert\WSBoletoSantander\PropriedadesExportaveisParaArrayInterface $objeto Objeto passível de ter suas propriedades exportadas.
      * @return \TIExpert\WSBoletoSantander\Ticket
      */
@@ -83,7 +83,7 @@ class BoletoSantanderServico {
     }
 
     /** Inclui um título a partir de um tíquete de segurança de inclusão
-     * 
+     *
      * @param \TIExpert\WSBoletoSantander\Ticket $ticket Tíquete de segurança de inclusão.
      * @return boolean
      */
@@ -94,7 +94,7 @@ class BoletoSantanderServico {
     }
 
     /** Sonda um título a partir de um tíquete de segurança de sondagem
-     * 
+     *
      * @param \TIExpert\WSBoletoSantander\Ticket $ticket Tíquete de segurança de sondagem.
      * @return \TIExpert\WSBoletoSantander\Boleto
      */
@@ -104,7 +104,7 @@ class BoletoSantanderServico {
     }
 
     /** Encaminha um tíquete de segurança para endpoint do serviço do Santander
-     * 
+     *
      * @param \TIExpert\WSBoletoSantander\Ticket $ticket Tíquete a ser enviado.
      * @param string $acao Nome do método a ser executado no endpoint
      * @return \DOMDocument
@@ -116,7 +116,7 @@ class BoletoSantanderServico {
     }
 
     /** Cria todo o XML do envelope SOAP contendo as informações do tíquete
-     * 
+     *
      * @param \TIExpert\WSBoletoSantander\Ticket $ticket Tíquete a ser envelopado
      * @param string $nomeAcao Nome do nó que será o método a ser chamado no endpoint
      * @return \XMLWriter
@@ -130,7 +130,7 @@ class BoletoSantanderServico {
     }
 
     /** Inicia um novo objeto XMLWriter com o nó raiz Envelope, o nó Header e o nó Body aberto para receber conteúdo.
-     * 
+     *
      * @return \XMLWriter
      */
     private function iniciarXmlSoapEnvelope() {
@@ -145,7 +145,7 @@ class BoletoSantanderServico {
     }
 
     /** Anexa um array associativo das propriedades exportáveis de uma classe no atual nó aberto do XMLWriter informado
-     * 
+     *
      * @param \XMLWriter $xml Objeto XMLWriter com o nó aberto onde será anexado o array
      * @param \TIExpert\WSBoletoSantander\PropriedadesExportaveisParaArrayInterface $objeto Instância que terá suas propriedades anexadas ao XML como um array
      */
@@ -159,7 +159,7 @@ class BoletoSantanderServico {
     }
 
     /** Executa o serviço usando o comunicador
-     * 
+     *
      * @param string $url URL do endpoint onde está localizado o serviço
      * @param \XMLWriter $xmlObject Objeto usado na escrita do XML que deve ser transmitido para o endpoint
      * @return string
@@ -170,7 +170,7 @@ class BoletoSantanderServico {
     }
 
     /** Converte toda o xml respondido em forma de string pelo serviço em um objeto DOMDocument
-     * 
+     *
      * @param string $respostaString String de resposta
      * @return \DOMDocument
      * @throws \Exception
@@ -187,7 +187,7 @@ class BoletoSantanderServico {
     }
 
     /** Processa a resposta de uma chamada a um serviço de solicitação de tíquete de segurança
-     * 
+     *
      * @param \DOMDocument $resposta Resposta de uma chamada a um serviço de solicitação de tíquete de segurança
      * @return \TIExpert\WSBoletoSantander\Ticket
      * @throws \Exception
@@ -202,7 +202,7 @@ class BoletoSantanderServico {
     }
 
     /** Cria um tíquete a partir de um XML de resposta de uma chamada a um serviço de solicitação de tíquete de segurança
-     * 
+     *
      * @param \DOMDocument $dom XML de resposta de uma chamada a um serviço de solicitação de tíquete de segurança
      * @return \TIExpert\WSBoletoSantander\Ticket
      * @throws \Exception
@@ -210,6 +210,7 @@ class BoletoSantanderServico {
     private function criarTiqueteAPartirDaResposta(\DOMDocument $dom) {
         $leitor = new LeitorSimplesXML($dom);
         $retCode = $leitor->getValorNo("retCode");
+        $mensagem = $leitor->getValorNo("message");
 
         if ($retCode === "0") {
             $ticket = new Ticket();
@@ -217,11 +218,11 @@ class BoletoSantanderServico {
             return $ticket;
         }
 
-        throw new \Exception("O serviço de inclusão de título do Santander retornou um erro. Código: " . $retCode);
+        throw new \Exception("O serviço de inclusão de título do Santander retornou um erro. Código: " . $retCode . " Menssagem: " . $mensagem);
     }
 
     /** Verifica se um título foi incluído com sucesso no Santander a partir da resposta do serviço de inclusão de título
-     * 
+     *
      * @param \DOMDocument $dom Documento XML representando a resposta do serviço
      * @return boolean
      * @throws \Exception
@@ -238,7 +239,7 @@ class BoletoSantanderServico {
     }
 
     /** Tenta converter um documento XML de reposta em uma instância da classe Boleto
-     * 
+     *
      * @param \DOMDocument $respostaXML Documento XML respondido pelo serviço
      * @return \TIExpert\WSBoletoSantander\Boleto
      */
@@ -252,7 +253,7 @@ class BoletoSantanderServico {
     }
 
     /** Verifica se a resposta de um serviço é um SOAPFault. Em caso verdadeiro, uma Exception é lançada com a mensagem contendo a faultstring.
-     * 
+     *
      * @param \DOMDocument $dom Documento XML representando a resposta do serviço
      * @return NULL
      * @throws \Exception
@@ -268,7 +269,7 @@ class BoletoSantanderServico {
     }
 
     /** Lança uma exceção contendo todos os erros informados na resposta do serviço de inclusão de título
-     * 
+     *
      * @param \DOMDocument $dom Documento XML representando a resposta do serviço
      * @throws \Exception
      */
@@ -284,7 +285,7 @@ class BoletoSantanderServico {
     }
 
     /** Gera um array a partir de uma string com layout definido pelo Santander contendo a descrição de todos os erros encontrados na requisição do serviço
-     * 
+     *
      * @param string $errosStr String de formato determinado contendo os erros encontrados na requisição do serviço
      * @return array
      */

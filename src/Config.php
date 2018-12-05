@@ -20,7 +20,7 @@ namespace TIExpert\WSBoletoSantander;
 
 /**
  * Classe de acesso e manipulação às configurações do WS Boletos Santander contidas no arquivo de configuração
- * 
+ *
  * @author Denys Xavier <equipe@tiexpert.net>
  */
 class Config {
@@ -56,8 +56,13 @@ class Config {
     /** @property Config $instance Ponteiro para a instância única de Config */
     private static $instance;
 
+
+    /** @property indica se utilizara o arquivo config.ini ou não */
+    private static $naoUsarArquivoConfiguracao = false;
+
+
     /** Cria uma nova instância de Config
-     * 
+     *
      * @param string $caminhoArquivoConfig Caminho para o arquivo de configuração utilizado. Se nada for informado, então, será considerado o arquivo config.ini da mesma pasta que o arquivo da classe Config.
      */
     private function __construct() {
@@ -72,11 +77,63 @@ class Config {
         if (is_null(self::$instance)) {
             self::$instance = new Config();
         }
+
         return self::$instance;
     }
 
+    /** Opção para não usar o arquivo de config.ini.
+     *
+     * Ao invez disso, ira utilizar os parametros do atributo $config padrão e todos os dados terão de ser setados nesse array
+     *
+     * @param boll $naoUsarArquivoConfiguracao
+     */
+    public static function setNaoUsarArquivoConfiguracao($naoUsarArquivoConfiguracao){
+        self::$naoUsarArquivoConfiguracao = $naoUsarArquivoConfiguracao;
+    }
+
+    /** Seta opção de configuração no array $config quando não for utilizar o arquivo config.php
+     *
+     * @string $propriedade nome do subindice do certificado
+     * @string $valor valor
+     *
+     */
+    public static function setCertificado($propriedade, $valor){
+        self::$config['certificado'][$propriedade] = $valor;
+    }
+
+    /** Seta opção de configuração no array $config quando não for utilizar o arquivo config.php
+     *
+     * @string $propriedade nome do subindice do convenio
+     * @string $valor valor
+     *
+     */
+    public static function setConvenio($propriedade, $valor){
+        self::$config['convenio'][$propriedade] = $valor;
+    }
+
+    /** Seta opção de configuração no array $config quando não for utilizar o arquivo config.php
+     *
+     * @string $propriedade nome do subindice do istrucoes_banco
+     * @string $valor valor
+     *
+     */
+    public static function setInstrucao($propriedade, $valor){
+        self::$config['instrucoes_banco'][$propriedade] = $valor;
+    }
+
+    /** Seta opção de configuração no array $config quando não for utilizar o arquivo config.php
+     *
+     * @string $propriedade nome do subindice do geral
+     * @string $valor valor
+     *
+     */
+    public static function setGeral($propriedade, $valor){
+        self::$config['geral'][$propriedade] = $valor;
+
+    }
+
     /** Obtém o caminho do arquivo de configuração que está sendo usado
-     * 
+     *
      * @return string
      */
     public static function getCaminhoArquivoConfig() {
@@ -84,9 +141,9 @@ class Config {
     }
 
     /** Define qual o caminho do arquivo de configuração a ser usado.
-     * 
+     *
      * Caso uma instância de Config já tenha sido criada com o método <code>getInstance()</code>, então, não é mais possível alterar esta propriedade e o novo valor é ignorado.
-     * 
+     *
      * @param string $caminhoArquivoConfig Caminho para o arquivo de configuração a ser utilizado ou criado
      */
     public static function setCaminhoArquivoConfig($caminhoArquivoConfig) {
@@ -108,7 +165,7 @@ class Config {
     }
 
     /** Obtém o valor da chave informada dentro do grupo instrucoes_banco
-     * 
+     *
      * @param string $chave Nome da chave da qual o valor deve ser retornado
      * @return mixed
      */
@@ -117,7 +174,7 @@ class Config {
     }
 
     /** Obtém o valor da chave informada dentro do grupo geral
-     * 
+     *
      * @param string $chave Nome da chave da qual o valor deve ser retornado
      * @return mixed
      */
@@ -126,7 +183,7 @@ class Config {
     }
 
     /** Obtém o valor da chave informada dentro do grupo certificado
-     * 
+     *
      * @param string $chave Nome da chave da qual o valor deve ser retornado
      * @return mixed
      */
@@ -147,17 +204,17 @@ class Config {
         }
     }
 
-    /** Carrega as configurações a partir de um arquivo INI */
+    /** Carrega as configurações a partir de um arquivo INI ou atravez dos parametros setados */
     private static function carregarConfiguracao() {
-        if (file_exists(self::$caminhoArquivoConfig)) {
+        if (file_exists(self::$caminhoArquivoConfig) && empty($naoUsarArquivoConfiguracao)) {
             self::$config = parse_ini_file(self::$caminhoArquivoConfig, true);
-        } else {
+        } elseif (empty($naoUsarArquivoConfiguracao)) {
             self::criarArquivoDeConfiguracao();
         }
     }
 
     /** Cria um novo arquivo de configuração no caminho especificado baseado nos dados padrões do array $config
-     * 
+     *
      * @throws \Exception se acontecer algum problema ao tentar manipular o arquivo.
      */
     private static function criarArquivoDeConfiguracao() {
@@ -193,9 +250,9 @@ class Config {
     }
 
     /** Formata uma string qualquer em um grupo de configuração.
-     * 
+     *
      * Por exemplo, uma string "XPTO" seria formatada como <code>[XPTO]</code>.
-     * 
+     *
      * @param string $string String a ser convertida em um formato de grupo
      * @return string
      */
@@ -204,9 +261,9 @@ class Config {
     }
 
     /** Formata duas strings quaisquer em uma linha de opção de configuração.
-     * 
+     *
      * Por exemplo: uma string de chave "ordenar" e outra string de valor "ASC" resulta na linha de configuração <code>ordernar = "ASC"</code>.
-     * 
+     *
      * @param string $chave A string que será usada como chave de configuração
      * @param string $valor A string que será usada como valor da chave de configuração
      * @return string

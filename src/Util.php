@@ -19,13 +19,13 @@
 namespace TIExpert\WSBoletoSantander;
 
 /** Classe utilitária de responsabilidades diversas
- * 
+ *
  * @author Denys Xavier <equipe@tiexpert.net>
  */
 class Util {
 
     /** Tenta converter um parâmetro para um objeto \DateTime. Se o parâmetro for um objeto DateTime ou NULL, o próprio parâmetro é retornado.
-     * 
+     *
      * @param mixed $param Parâmetro que será convertido
      * @return \DateTime
      * @throws \Exception
@@ -48,7 +48,7 @@ class Util {
     }
 
     /** Tenta converter um parâmetro do tipo string para um objeto \DateTime.
-     * 
+     *
      * @param string $param String que será convertida
      * @return \DateTime
      * @throws \InvalidArgumentException
@@ -65,9 +65,9 @@ class Util {
     }
 
     /** Formata um número em uma string específica baseada em sua precisão.
-     * 
+     *
      * Este método diferencia-se da função number_format nativa do PHP por não arredondar o número.
-     * 
+     *
      * @param float $numero Número a ser formatado
      * @param int $precisao Quantidade de casas decimais
      * @param string $separadorDecimal Caracter usado como separador decimal
@@ -91,7 +91,7 @@ class Util {
     }
 
     /** Formata um número inteiro como uma string separando grupos de 3 algarismos com algum caracter especificado
-     * 
+     *
      * @param int $numero Número inteiro a ser formatado
      * @param string $caracterDeAgrupamento Caracter a ser usado para marcar o agrupamento dos número
      */
