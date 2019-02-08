@@ -26,7 +26,7 @@ namespace TIExpert\WSBoletoSantander;
 class ComunicadorCurlSOAP {
 
     /** Executa uma comunicação com o endpoint enviando uma string em formato XML
-     * 
+     *
      * @param string $endpoint Url que deve ser atingida para executar a ação do WebService
      * @param array $endpointConfig Array contendo os parâmetros de configurações a serem usados na execução do cURL para que ele alcance o $endpoint
      * @return string
@@ -51,7 +51,7 @@ class ComunicadorCurlSOAP {
     }
 
     /** Gera um array contendo todas as configurações e parâmetros necessários para um recurso de cURL
-     * 
+     *
      * @param string $conteudoPost String no formato XML contendo os dados que devem ser informados ao WebService
      * @return array
      */
@@ -68,7 +68,7 @@ class ComunicadorCurlSOAP {
     }
 
     /** Cria os cabeçalhos HTTP para envio de informações via POST para o endpoint.
-     * 
+     *
      * @param array $arrayConfig Array contendo as configurações atuais do cURL
      * @param string $conteudoPost Conteúdo que será enviado ao endpoint
      */
@@ -84,7 +84,7 @@ class ComunicadorCurlSOAP {
     }
 
     /** Configura e anexa os certificados digitais a serem usados durante a comunicação entre a origem e o endpoint
-     * 
+     *
      * @param array $arrayConfig Array contendo as configurações atuais do cURL
      */
     public function configurarCertificadosDeSeguranca(&$arrayConfig) {
@@ -108,7 +108,7 @@ class ComunicadorCurlSOAP {
     }
 
     /** Indica se a resposta de uma chamada ao endpoint pode ser um SOAP Fault que está formatado como string
-     * 
+     *
      * @param string $response String de resposta a ser analisada
      * @return boolean
      */
@@ -125,7 +125,7 @@ class ComunicadorCurlSOAP {
     }
 
     /** Tenta converter uma resposta de uma chamada ao endpoint que é um SOAP Fault formatado como string para um Exception
-     * 
+     *
      * @param string $string Resposta da chamada ao endpoint
      * @return \Exception
      * @throws \InvalidArgumentException

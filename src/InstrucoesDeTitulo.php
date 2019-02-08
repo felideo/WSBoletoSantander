@@ -19,7 +19,7 @@
 namespace TIExpert\WSBoletoSantander;
 
 /** Classe que determina as instruções do que o banco Santander deve fazer com o título bancário.
- * 
+ *
  * @author Denys Xavier <equipe@tiexpert.net>
  */
 class InstrucoesDeTitulo implements PropriedadesExportaveisParaArrayInterface, PropriedadesImportaveisPorXMLInterface {
@@ -70,7 +70,7 @@ class InstrucoesDeTitulo implements PropriedadesExportaveisParaArrayInterface, P
     private $percentualMaximo;
 
     /** Cria uma nova instância de InstrucoesDeTitulo
-     * 
+     *
      * @param float $multa Percentual da multa com 2 decimais.
      * @param int $multarApos Quantidade de dias após o vencimento do título para incidência da multa.
      * @param float $juros Percentual de juros com 2 decimais.
@@ -106,7 +106,7 @@ class InstrucoesDeTitulo implements PropriedadesExportaveisParaArrayInterface, P
     }
 
     /** Obtém o percentual da multa, com 2 decimais.
-     * 
+     *
      * @return float
      */
     public function getMulta() {
@@ -114,7 +114,7 @@ class InstrucoesDeTitulo implements PropriedadesExportaveisParaArrayInterface, P
     }
 
     /** Obtém a quantidade de dias após o vencimento do título para incidência da multa.
-     * 
+     *
      * @return int
      */
     public function getMultarApos() {
@@ -122,7 +122,7 @@ class InstrucoesDeTitulo implements PropriedadesExportaveisParaArrayInterface, P
     }
 
     /** Obtém o percentual de juros com 2 decimais.
-     * 
+     *
      * @return float
      */
     public function getJuros() {
@@ -130,7 +130,7 @@ class InstrucoesDeTitulo implements PropriedadesExportaveisParaArrayInterface, P
     }
 
     /** Obtém o tipo de desconto a ser aplicado.
-     * 
+     *
      * @return int
      */
     public function getTipoDesconto() {
@@ -138,7 +138,7 @@ class InstrucoesDeTitulo implements PropriedadesExportaveisParaArrayInterface, P
     }
 
     /** Obtém o valor ou percentual de desconto com 2 casas decimais.
-     * 
+     *
      * @return type
      */
     public function getValorDesconto() {
@@ -146,7 +146,7 @@ class InstrucoesDeTitulo implements PropriedadesExportaveisParaArrayInterface, P
     }
 
     /** Obtém a data limite para Desconto.
-     * 
+     *
      * @return \DateTime
      */
     public function getDataLimiteDesconto() {
@@ -154,7 +154,7 @@ class InstrucoesDeTitulo implements PropriedadesExportaveisParaArrayInterface, P
     }
 
     /** Obtém o valor do abatimento.
-     * 
+     *
      * @return float
      */
     public function getValorAbatimento() {
@@ -162,7 +162,7 @@ class InstrucoesDeTitulo implements PropriedadesExportaveisParaArrayInterface, P
     }
 
     /** Obtém o tipo de protesto a ser adotado.
-     * 
+     *
      * @return int
      */
     public function getTipoProtesto() {
@@ -170,7 +170,7 @@ class InstrucoesDeTitulo implements PropriedadesExportaveisParaArrayInterface, P
     }
 
     /** Obtém a quantidade de dias após o vencimento para protesto.
-     * 
+     *
      * @return int
      */
     public function getProtestarApos() {
@@ -178,7 +178,7 @@ class InstrucoesDeTitulo implements PropriedadesExportaveisParaArrayInterface, P
     }
 
     /** Obtém a quantidade de dias após o vencimento para baixa/devolução do título.
-     * 
+     *
      * @return int
      */
     public function getBaixarApos() {
@@ -186,7 +186,7 @@ class InstrucoesDeTitulo implements PropriedadesExportaveisParaArrayInterface, P
     }
 
     /** Obtém a identificação do tipo de pagamento.
-     * 
+     *
      * @return int
      */
     public function getTipoPagamento() {
@@ -194,7 +194,7 @@ class InstrucoesDeTitulo implements PropriedadesExportaveisParaArrayInterface, P
     }
 
     /** Obtém a quantidade de pagamentos possíveis.
-     * 
+     *
      * @return int
      */
     public function getQtdParciais() {
@@ -202,7 +202,7 @@ class InstrucoesDeTitulo implements PropriedadesExportaveisParaArrayInterface, P
     }
 
     /** Obtém o tipo de valor informado
-     * 
+     *
      * @return int
      */
     public function getTipoValor() {
@@ -210,7 +210,7 @@ class InstrucoesDeTitulo implements PropriedadesExportaveisParaArrayInterface, P
     }
 
     /** Obtém o valor mínimo ou percentual mínimo do título.
-     * 
+     *
      * @return float
      */
     public function getPercentualMinimo() {
@@ -218,7 +218,7 @@ class InstrucoesDeTitulo implements PropriedadesExportaveisParaArrayInterface, P
     }
 
     /** Obtém o valor máximo ou percentual máximo do título.
-     * 
+     *
      * @return float
      */
     public function getPercentualMaximo() {
@@ -226,7 +226,7 @@ class InstrucoesDeTitulo implements PropriedadesExportaveisParaArrayInterface, P
     }
 
     /** Determina o percentual da multa, com 2 decimais.
-     * 
+     *
      * @param float $multa Percentual da multa, com 2 decimais.
      * @return \TIExpert\WSBoletoSantander\Titulo
      */
@@ -236,7 +236,7 @@ class InstrucoesDeTitulo implements PropriedadesExportaveisParaArrayInterface, P
     }
 
     /** Determina a quantidade de dias após o vencimento do título para incidência da multa.
-     * 
+     *
      * @param int $multarApos Quantidade de dias após o vencimento do título para incidência da multa.
      * @return \TIExpert\WSBoletoSantander\Titulo
      */
@@ -246,7 +246,7 @@ class InstrucoesDeTitulo implements PropriedadesExportaveisParaArrayInterface, P
     }
 
     /** Determina o percentual de juros, com 2 decimais.
-     * 
+     *
      * @param float $juros Percentual de juros com 2 decimais.
      * @return \TIExpert\WSBoletoSantander\Titulo
      */
@@ -256,9 +256,9 @@ class InstrucoesDeTitulo implements PropriedadesExportaveisParaArrayInterface, P
     }
 
     /** Determina o tipo de desconto a ser aplicado.
-     * 
+     *
      * Se <code>NULL<code> for informado, então, o valor de tipo será o mesmo que está configurado no arquivo config.ini
-     * 
+     *
      * @param int $tipoDesconto Tipo de desconto a ser aplicado. Sendo: 0 = isento; 1 = Valor fixo até a data informada; 2 = Percentual até a data informada; 3 = Valor por antecipação dia corrido.
      * @return \TIExpert\WSBoletoSantander\Titulo
      */
@@ -272,9 +272,9 @@ class InstrucoesDeTitulo implements PropriedadesExportaveisParaArrayInterface, P
     }
 
     /** Determina o valor ou percentual de desconto com 2 casas decimais.
-     * 
+     *
      * Se <code>NULL<code> for informado, então, o valor do desconto será o mesmo que está configurado no arquivo config.ini
-     * 
+     *
      * @param float $valorDesconto Valor ou percentual de desconto com 2 casas decimais.
      * @return \TIExpert\WSBoletoSantander\Titulo
      */
@@ -288,9 +288,9 @@ class InstrucoesDeTitulo implements PropriedadesExportaveisParaArrayInterface, P
     }
 
     /** Determina a data limite para Desconto.
-     * 
+     *
      * Se <code>NULL<code> for informado, então, a data será o mesmo que está configurada no arquivo config.ini
-     * 
+     *
      * @param \DateTime $dataLimiteDesconto Data limite para Desconto.
      * @return \TIExpert\WSBoletoSantander\Titulo
      */
@@ -308,7 +308,7 @@ class InstrucoesDeTitulo implements PropriedadesExportaveisParaArrayInterface, P
     }
 
     /** Determina o valor do abatimento.
-     * 
+     *
      * @param float $valorAbatimento Valor do abatimento.
      * @return \TIExpert\WSBoletoSantander\Titulo
      */
@@ -318,9 +318,9 @@ class InstrucoesDeTitulo implements PropriedadesExportaveisParaArrayInterface, P
     }
 
     /** Determina o tipo de protesto a ser adotado.
-     * 
+     *
      * Se <code>NULL<code> for informado, então, o valor de tipo de protesto será o mesmo que está configurado no arquivo config.ini
-     * 
+     *
      * @param int $tipoProtesto Tipo de protesto a ser adotado. Sendo: 0 = Nao Protestar; 1 = Protestar dias corridos; 2 = Protestar dias úteis; 3 = Utilizar Perfil Cedente.
      * @return \TIExpert\WSBoletoSantander\Titulo
      */
@@ -334,7 +334,7 @@ class InstrucoesDeTitulo implements PropriedadesExportaveisParaArrayInterface, P
     }
 
     /** Determina a quantidade de dias após o vencimento para protesto.
-     * 
+     *
      * @param int $protestarApos Quantidade de dias após o vencimento para protesto.
      * @return \TIExpert\WSBoletoSantander\Titulo
      */
@@ -344,9 +344,9 @@ class InstrucoesDeTitulo implements PropriedadesExportaveisParaArrayInterface, P
     }
 
     /** Determina a quantidade de dias após o vencimento para baixa/devolução do título.
-     * 
+     *
      * Se <code>NULL<code> for informado, então, o valor de baixar após será o mesmo que está configurado no arquivo config.ini
-     * 
+     *
      * @param int $baixarApos Quantidade de dias após o vencimento para baixa/devolução do título.
      * @return \TIExpert\WSBoletoSantander\Titulo
      */
@@ -360,7 +360,7 @@ class InstrucoesDeTitulo implements PropriedadesExportaveisParaArrayInterface, P
     }
 
     /** Determina a identificação do tipo de pagamento.
-     * 
+     *
      * @param int $tipoPagamento Código do tipo de pagamento. Sendo: 1 = Conforme Registro; 2 = Divergente; 3 = Parcial.
      */
     public function setTipoPagamento($tipoPagamento) {
@@ -368,7 +368,7 @@ class InstrucoesDeTitulo implements PropriedadesExportaveisParaArrayInterface, P
     }
 
     /** Determina a quantidade de pagamentos possíveis.
-     * 
+     *
      * @param int $qtdParciais Quantidade de pagamentos possíveis
      */
     public function setQtdParciais($qtdParciais = 0) {
@@ -376,7 +376,7 @@ class InstrucoesDeTitulo implements PropriedadesExportaveisParaArrayInterface, P
     }
 
     /** Determina o tipo de valor informado
-     * 
+     *
      * @param int $tipoValor Tipo de valor informado. Sendo: 1 = Percentual; 2 = Valor.
      */
     public function setTipoValor($tipoValor) {
@@ -384,7 +384,7 @@ class InstrucoesDeTitulo implements PropriedadesExportaveisParaArrayInterface, P
     }
 
     /** Determina o valor mínimo ou percentual mínimo do título.
-     * 
+     *
      * @param type $percentualMinimo Valor mínimo ou percentual mínimo do título.
      */
     public function setPercentualMinimo($percentualMinimo) {
@@ -392,7 +392,7 @@ class InstrucoesDeTitulo implements PropriedadesExportaveisParaArrayInterface, P
     }
 
     /** Determina o valor máximo ou percentual máximo do título.
-     * 
+     *
      * @param float $percentualMaximo Valor máximo ou percentual máximo do título.
      */
     public function setPercentualMaximo($percentualMaximo) {
@@ -400,7 +400,7 @@ class InstrucoesDeTitulo implements PropriedadesExportaveisParaArrayInterface, P
     }
 
     /** Exporta um array associativo no qual as chaves são as propriedades representadas como no WebService do Santander
-     * 
+     *
      * @return array
      */
     public function exportarArray() {
@@ -419,14 +419,14 @@ class InstrucoesDeTitulo implements PropriedadesExportaveisParaArrayInterface, P
         $array["TITULO.TP-PAGAMENTO"] = $this->getTipoPagamento();
         $array["TITULO.QT-PARCIAIS"] = $this->getQtdParciais();
         $array["TITULO.TP-VALOR"] = $this->getTipoValor();
-        $array["TITULO.VL-PERC-MINIMO"] = Util::formatarNumero($this->getPercentualMinimo(), 5, ',', '');
-        $array["TITULO.VL-PERC-MAXIMO"] = Util::formatarNumero($this->getPercentualMaximo(), 5, ',', '');
+        $array["TITULO.VL-PERC-MINIMO"] = Util::formatarNumero($this->getPercentualMinimo(), 5, '', '');
+        $array["TITULO.VL-PERC-MAXIMO"] = Util::formatarNumero($this->getPercentualMaximo(), 5, '', '');
 
         return $array;
     }
 
     /** Carrega as propriedades da instância usando a estrutura XML
-     * 
+     *
      * @param \DOMDocument $xml Estrutura XML legível
      */
     public function carregarPorXML(\DOMDocument $xml) {

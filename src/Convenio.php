@@ -32,9 +32,9 @@ class Convenio implements PropriedadesExportaveisParaArrayInterface, Propriedade
     private $codigoConvenio;
 
     /** Cria uma nova instância de Convenio.
-     * 
+     *
      * Se nenhum parâmetro for informado, então, o código do banco e o convênio são carregados a partir da configuração do arquivo config.ini
-     * 
+     *
      * @param string $codigoBanco Código do banco
      * @param string $codigoConvenio Número do convênio informado pelo banco
      */
@@ -50,7 +50,7 @@ class Convenio implements PropriedadesExportaveisParaArrayInterface, Propriedade
     }
 
     /** Obtém o código do banco
-     * 
+     *
      * @return string
      */
     public function getCodigoBanco() {
@@ -58,7 +58,7 @@ class Convenio implements PropriedadesExportaveisParaArrayInterface, Propriedade
     }
 
     /** Obtém o número do convênio
-     * 
+     *
      * @return string
      */
     public function getCodigoConvenio() {
@@ -66,7 +66,7 @@ class Convenio implements PropriedadesExportaveisParaArrayInterface, Propriedade
     }
 
     /** Determina o código do banco
-     * 
+     *
      * @param string $codigoBanco Código do banco
      * @return \TIExpert\WSBoletoSantander\Convenio
      */
@@ -76,7 +76,7 @@ class Convenio implements PropriedadesExportaveisParaArrayInterface, Propriedade
     }
 
     /** Determina o número do convênio
-     * 
+     *
      * @param string $codigoConvenio
      * @return \TIExpert\WSBoletoSantander\Convenio
      */
@@ -86,7 +86,7 @@ class Convenio implements PropriedadesExportaveisParaArrayInterface, Propriedade
     }
 
     /** Exporta um array associativo no qual as chaves são as propriedades representadas como no WebService do Santander
-     * 
+     *
      * @return array
      */
     public function exportarArray() {
@@ -97,7 +97,7 @@ class Convenio implements PropriedadesExportaveisParaArrayInterface, Propriedade
     }
 
     /** Carrega as propriedades da instância usando a estrutura XML
-     * 
+     *
      * @param \DOMDocument $xml Estrutura XML legível
      */
     public function carregarPorXML(\DOMDocument $xml) {

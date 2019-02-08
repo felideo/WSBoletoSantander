@@ -19,7 +19,7 @@
 namespace TIExpert\WSBoletoSantander;
 
 /** Classe que representa os dados de um título de boleto a ser utilizado no WebService do banco Santander
- * 
+ *
  * @author Denys Xavier <equipe@tiexpert.net>
  */
 class Titulo implements PropriedadesExportaveisParaArrayInterface, PropriedadesImportaveisPorXMLInterface {
@@ -49,14 +49,14 @@ class Titulo implements PropriedadesExportaveisParaArrayInterface, PropriedadesI
     private $instrucoes;
 
     /** Cria uma nova instância de Titulo
-     * 
-     * @param float $valor Valor nominal do título com 2 casas decimais. 
+     *
+     * @param float $valor Valor nominal do título com 2 casas decimais.
      * @param string $nossoNumero Número do Título no Banco.
      * @param string $seuNumero Número do Título no cliente.
      * @param \DateTime $dataVencimento Data de vencimento do título.
      * @param string $mensagem Mensagem do boleto.
      * @param \DateTime $dataEmissao Data de emissão do Título.
-     * @param int $especie Código da Espécie do Documento.      
+     * @param int $especie Código da Espécie do Documento.
      * @param \TIExpert\WSBoletoSantander\InstrucoesDeTitulo $instrucoes Instruções do que o banco Santander deve fazer com o título bancário.
      */
     public function __construct($valor = 0, $nossoNumero = "0", $seuNumero = NULL, $dataVencimento = NULL, $mensagem = NULL, $dataEmissao = NULL, $especie = NULL, InstrucoesDeTitulo $instrucoes = NULL) {
@@ -79,7 +79,7 @@ class Titulo implements PropriedadesExportaveisParaArrayInterface, PropriedadesI
     }
 
     /** Obtém o número do título no banco.
-     * 
+     *
      * @return string
      */
     public function getNossoNumero() {
@@ -87,7 +87,7 @@ class Titulo implements PropriedadesExportaveisParaArrayInterface, PropriedadesI
     }
 
     /** Obtém o número do título no banco com seu dígito verificador
-     * 
+     *
      * @return string
      */
     public function getNossoNumeroComDigito() {
@@ -95,7 +95,7 @@ class Titulo implements PropriedadesExportaveisParaArrayInterface, PropriedadesI
     }
 
     /** Obtém o número do Título no cliente.
-     * 
+     *
      * @return string
      */
     public function getSeuNumero() {
@@ -103,7 +103,7 @@ class Titulo implements PropriedadesExportaveisParaArrayInterface, PropriedadesI
     }
 
     /** Obtém a data de vencimento do título.
-     * 
+     *
      * @return \DateTime
      */
     public function getDataVencimento() {
@@ -111,7 +111,7 @@ class Titulo implements PropriedadesExportaveisParaArrayInterface, PropriedadesI
     }
 
     /** Obtém a data de emissão do Título.
-     * 
+     *
      * @return \DateTime
      */
     public function getDataEmissao() {
@@ -119,7 +119,7 @@ class Titulo implements PropriedadesExportaveisParaArrayInterface, PropriedadesI
     }
 
     /** Obtém o código da Espécie do Documento.
-     * 
+     *
      * @return int
      */
     public function getEspecie() {
@@ -127,7 +127,7 @@ class Titulo implements PropriedadesExportaveisParaArrayInterface, PropriedadesI
     }
 
     /** Obtém o valor nominal do título, com 2 casas decimais.
-     * 
+     *
      * @return float
      */
     public function getValor() {
@@ -135,7 +135,7 @@ class Titulo implements PropriedadesExportaveisParaArrayInterface, PropriedadesI
     }
 
     /** Obtém a mensagem do boleto.
-     * 
+     *
      * @return string
      */
     public function getMensagem() {
@@ -143,7 +143,7 @@ class Titulo implements PropriedadesExportaveisParaArrayInterface, PropriedadesI
     }
 
     /** Obtém as instruções do que o banco Santander deve fazer com o título bancário.
-     * 
+     *
      * @return InstrucoesDeTitulo
      */
     public function getInstrucoes() {
@@ -151,7 +151,7 @@ class Titulo implements PropriedadesExportaveisParaArrayInterface, PropriedadesI
     }
 
     /** Determina o número do título no banco.
-     * 
+     *
      * @param string $nossoNumero Número do Título no Banco.
      * @return \TIExpert\WSBoletoSantander\Titulo
      */
@@ -161,7 +161,7 @@ class Titulo implements PropriedadesExportaveisParaArrayInterface, PropriedadesI
     }
 
     /** Determina o número do Título no cliente.
-     * 
+     *
      * @param string $seuNumero Número do Título no cliente.
      * @return \TIExpert\WSBoletoSantander\Titulo
      */
@@ -171,7 +171,7 @@ class Titulo implements PropriedadesExportaveisParaArrayInterface, PropriedadesI
     }
 
     /** Determina a data de vencimento do título.
-     * 
+     *
      * @param \DateTime $dataVencimento Data de vencimento do título.
      * @return \TIExpert\WSBoletoSantander\Titulo
      */
@@ -185,7 +185,7 @@ class Titulo implements PropriedadesExportaveisParaArrayInterface, PropriedadesI
     }
 
     /** Determina a data de emissão do Título.
-     * 
+     *
      * @param \DateTime $dataEmissao Data de emissão do Título.
      * @return \TIExpert\WSBoletoSantander\Titulo
      */
@@ -199,7 +199,7 @@ class Titulo implements PropriedadesExportaveisParaArrayInterface, PropriedadesI
     }
 
     /** Determina o código da Espécie do Documento.
-     * 
+     *
      * @param int $especie Código da Espécie do Documento.
      * @return \TIExpert\WSBoletoSantander\Titulo
      */
@@ -209,7 +209,7 @@ class Titulo implements PropriedadesExportaveisParaArrayInterface, PropriedadesI
     }
 
     /** Determina o valor nominal do título, com 2 casas decimais.
-     * 
+     *
      * @param float $valor Valor nominal do título, com 2 casas decimais.
      * @return \TIExpert\WSBoletoSantander\Titulo
      */
@@ -219,7 +219,7 @@ class Titulo implements PropriedadesExportaveisParaArrayInterface, PropriedadesI
     }
 
     /** Determina as instruções do que o banco Santander deve fazer com o título bancário.
-     * 
+     *
      * @param \TIExpert\WSBoletoSantander\InstrucoesDeTitulo $instrucoes
      * @return \TIExpert\WSBoletoSantander\Titulo
      */
@@ -229,7 +229,7 @@ class Titulo implements PropriedadesExportaveisParaArrayInterface, PropriedadesI
     }
 
     /** Determina a mensagem do boleto.
-     * 
+     *
      * @param string $mensagem Mensagem do boleto.
      * @return \TIExpert\WSBoletoSantander\Titulo
      */
@@ -265,7 +265,7 @@ class Titulo implements PropriedadesExportaveisParaArrayInterface, PropriedadesI
     }
 
     /** Exporta um array associativo no qual as chaves são as propriedades representadas como no WebService do Santander
-     * 
+     *
      * @return array
      */
     public function exportarArray() {
@@ -282,7 +282,7 @@ class Titulo implements PropriedadesExportaveisParaArrayInterface, PropriedadesI
     }
 
     /** Carrega as propriedades da instância usando a estrutura XML
-     * 
+     *
      * @param \DOMDocument $xml Estrutura XML legível
      */
     public function carregarPorXML(\DOMDocument $xml) {
@@ -302,7 +302,7 @@ class Titulo implements PropriedadesExportaveisParaArrayInterface, PropriedadesI
     }
 
     /** Remove o último caracter da string
-     * 
+     *
      * @return string
      */
     private function removerUltimoCaracter($string) {

@@ -20,7 +20,7 @@ namespace TIExpert\WSBoletoSantander;
 
 /**
  * Classe que auxilia na leitura de uma estrutura de um documento XML
- * 
+ *
  * @author Denys Xavier <equipe@tiexpert.net>
  */
 class LeitorSimplesXML {
@@ -29,7 +29,7 @@ class LeitorSimplesXML {
     private $xml;
 
     /** Cria uma nova instância de LeitorSimplesXML
-     * 
+     *
      * @param \DOMDocument $xml Objeto contendo toda estrutura XML a ser lida
      */
     public function __construct(\DOMDocument $xml) {
@@ -37,7 +37,7 @@ class LeitorSimplesXML {
     }
 
     /** Obtém o valor do primeiro nó com o nome informado
-     * 
+     *
      * @param string $tagName Nome do nó a ser pesquisado
      * @return string
      * @throws \Exception

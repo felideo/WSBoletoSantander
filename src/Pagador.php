@@ -20,7 +20,7 @@ namespace TIExpert\WSBoletoSantander;
 
 /**
  * Classe que representa os dados do pagador para utilização do WS Santander
- * 
+ *
  * @author Denys Xavier <equipe@tiexpert.net>
  */
 class Pagador implements PropriedadesExportaveisParaArrayInterface, PropriedadesImportaveisPorXMLInterface {
@@ -50,7 +50,7 @@ class Pagador implements PropriedadesExportaveisParaArrayInterface, Propriedades
     private $CEP;
 
     /** Cria uma nova instância de Pagador
-     * 
+     *
      * @param int $tipoDoc Tipo de Documento do Pagador
      * @param string $numeroDoc CPF/CNPJ do Pagador
      * @param string $nome Nome do Pagador
@@ -61,7 +61,7 @@ class Pagador implements PropriedadesExportaveisParaArrayInterface, Propriedades
      * @param string $CEP CEP do Pagador
      */
     public function __construct($tipoDoc = NULL, $numeroDoc = NULL, $nome = NULL, $endereco = NULL, $bairro = NULL, $cidade = NULL, $UF = NULL, $CEP = NULL) {
-        $this->tipoDoc = $tipoDoc;
+    	$this->tipoDoc = $tipoDoc;
         $this->numeroDoc = $numeroDoc;
         $this->nome = $nome;
         $this->endereco = $endereco;
@@ -72,7 +72,7 @@ class Pagador implements PropriedadesExportaveisParaArrayInterface, Propriedades
     }
 
     /** Obtém o tipo de documento do Pagador
-     * 
+     *
      * @return string
      */
     public function getTipoDoc() {
@@ -80,7 +80,7 @@ class Pagador implements PropriedadesExportaveisParaArrayInterface, Propriedades
     }
 
     /** Obtém o CPF/CNPJ do Pagador
-     * 
+     *
      * @return string
      */
     public function getNumeroDoc() {
@@ -88,7 +88,7 @@ class Pagador implements PropriedadesExportaveisParaArrayInterface, Propriedades
     }
 
     /** Obtém o nome do Pagador
-     * 
+     *
      * @return string
      */
     public function getNome() {
@@ -96,7 +96,7 @@ class Pagador implements PropriedadesExportaveisParaArrayInterface, Propriedades
     }
 
     /** Obtém o endereço do Pagador
-     * 
+     *
      * @return string
      */
     public function getEndereco() {
@@ -104,7 +104,7 @@ class Pagador implements PropriedadesExportaveisParaArrayInterface, Propriedades
     }
 
     /** Obtém o bairro do Pagador
-     * 
+     *
      * @return string
      */
     public function getBairro() {
@@ -112,7 +112,7 @@ class Pagador implements PropriedadesExportaveisParaArrayInterface, Propriedades
     }
 
     /** Obtém a cidade do Pagador
-     * 
+     *
      * @return string
      */
     public function getCidade() {
@@ -120,7 +120,7 @@ class Pagador implements PropriedadesExportaveisParaArrayInterface, Propriedades
     }
 
     /** Obtém a UF do Pagador
-     * 
+     *
      * @return string
      */
     public function getUF() {
@@ -128,7 +128,7 @@ class Pagador implements PropriedadesExportaveisParaArrayInterface, Propriedades
     }
 
     /** Obtém o CEP do Pagador
-     * 
+     *
      * @return string
      */
     public function getCEP() {
@@ -136,7 +136,7 @@ class Pagador implements PropriedadesExportaveisParaArrayInterface, Propriedades
     }
 
     /** Determina o tipo de documento do Pagador
-     * 
+     *
      * @param string $tipoDoc Tipo de Documento do Pagador
      * @return \TIExpert\WSBoletoSantander\Pagador
      */
@@ -146,7 +146,7 @@ class Pagador implements PropriedadesExportaveisParaArrayInterface, Propriedades
     }
 
     /** Determina o CPF/CNPJ do Pagador
-     * 
+     *
      * @param string $numeroDoc CPF/CNPJ do Pagador
      * @return \TIExpert\WSBoletoSantander\Pagador
      */
@@ -156,7 +156,7 @@ class Pagador implements PropriedadesExportaveisParaArrayInterface, Propriedades
     }
 
     /** Determina o nome do Pagador
-     * 
+     *
      * @param string $nome Nome do Pagador
      * @return \TIExpert\WSBoletoSantander\Pagador
      */
@@ -166,7 +166,7 @@ class Pagador implements PropriedadesExportaveisParaArrayInterface, Propriedades
     }
 
     /** Determina o endereço do Pagador
-     * 
+     *
      * @param string $endereco Endereço do Pagador
      * @return \TIExpert\WSBoletoSantander\Pagador
      */
@@ -176,7 +176,7 @@ class Pagador implements PropriedadesExportaveisParaArrayInterface, Propriedades
     }
 
     /** Determina o bairro do Pagador
-     * 
+     *
      * @param string $bairro Bairro do Pagador
      * @return \TIExpert\WSBoletoSantander\Pagador
      */
@@ -186,7 +186,7 @@ class Pagador implements PropriedadesExportaveisParaArrayInterface, Propriedades
     }
 
     /** Determina a Cidade do Pagador
-     * 
+     *
      * @param string $cidade Cidade do Pagador
      * @return \TIExpert\WSBoletoSantander\Pagador
      */
@@ -196,7 +196,7 @@ class Pagador implements PropriedadesExportaveisParaArrayInterface, Propriedades
     }
 
     /** Determina a UF do Pagador
-     * 
+     *
      * @param string $UF UF do Pagador
      * @return \TIExpert\WSBoletoSantander\Pagador
      */
@@ -206,7 +206,7 @@ class Pagador implements PropriedadesExportaveisParaArrayInterface, Propriedades
     }
 
     /** Determina o CEP do Pagador
-     * 
+     *
      * @param string $CEP CEP do Pagador
      * @return \TIExpert\WSBoletoSantander\Pagador
      */
@@ -216,7 +216,7 @@ class Pagador implements PropriedadesExportaveisParaArrayInterface, Propriedades
     }
 
     /** Exporta um array associativo no qual as chaves são as propriedades representadas como no WebService do Santander
-     * 
+     *
      * @return array
      */
     public function exportarArray() {
@@ -232,7 +232,7 @@ class Pagador implements PropriedadesExportaveisParaArrayInterface, Propriedades
     }
 
     /** Carrega as propriedades da instância usando a estrutura XML
-     * 
+     *
      * @param \DOMDocument $xml Estrutura XML legível
      */
     public function carregarPorXML(\DOMDocument $xml) {
